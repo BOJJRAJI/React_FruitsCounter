@@ -1,26 +1,26 @@
-import './index.css'
 import {Component} from 'react'
 
+import './index.css'
+
 class FruitsCounter extends Component {
-  state = {mangosCount: 0, bananaCount: 0}
+  state = {mangoes: 0, bananas: 0}
 
   eatMango = () => {
-    this.setState(prevState => ({mangosCount: prevState.mangosCount + 1}))
+    this.setState(prevState => ({mangoes: prevState.mangoes + 1}))
   }
 
   eatBanana = () => {
-    this.setState(prevState => ({bananaCount: prevState.bananaCount + 1}))
+    this.setState(prevState => ({bananas: prevState.bananas + 1}))
   }
 
   render() {
-    const {mangosCount, bananaCount} = this.state
-
+    const {mangoes, bananas} = this.state
     return (
       <div className="bg-container">
-        <div className="card-container">
+        <div className="card">
           <h1 className="heading">
-            Bob ate <span className="mango">{mangosCount} </span>mangoes
-            <span className="banana"> {bananaCount} </span> bananas
+            Bob ate <span className="eat">{mangoes} </span>mangoes
+            <span className="eat"> {bananas} </span>bananas
           </h1>
           <div className="fruits-container">
             <div className="mango-container">
@@ -29,7 +29,7 @@ class FruitsCounter extends Component {
                 alt="mango"
                 className="image"
               />
-              <button type="button" className="button" onClick={this.eatMango}>
+              <button className="button" type="button" onClick={this.eatMango}>
                 Eat Mango
               </button>
             </div>
@@ -39,7 +39,7 @@ class FruitsCounter extends Component {
                 alt="banana"
                 className="image"
               />
-              <button type="button" className="button" onClick={this.eatBanana}>
+              <button className="button" type="button" onClick={this.eatBanana}>
                 Eat Banana
               </button>
             </div>
@@ -51,3 +51,4 @@ class FruitsCounter extends Component {
 }
 
 export default FruitsCounter
+
