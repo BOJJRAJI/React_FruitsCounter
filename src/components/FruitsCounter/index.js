@@ -1,26 +1,24 @@
 import {Component} from 'react'
-
 import './index.css'
 
 class FruitsCounter extends Component {
-  state = {mangoes: 0, bananas: 0}
+  state = {mangoCount: 0, bananaCount: 0}
 
-  eatMango = () => {
-    this.setState(prevState => ({mangoes: prevState.mangoes + 1}))
+  onIncreaseBananaCount = () => {
+    this.setState(prevState => ({bananaCount: prevState.bananaCount + 1}))
   }
 
-  eatBanana = () => {
-    this.setState(prevState => ({bananas: prevState.bananas + 1}))
+  onIncreaseMangoCount = () => {
+    this.setState(prevState => ({mangoCount: prevState.mangoCount + 1}))
   }
 
   render() {
-    const {mangoes, bananas} = this.state
+    const {mangoCount, bananaCount} = this.state
     return (
       <div className="bg-container">
         <div className="card">
           <h1 className="heading">
-            Bob ate <span className="eat">{mangoes} </span>mangoes
-            <span className="eat"> {bananas} </span>bananas
+            Bob ate {mangoCount} mangoes {bananaCount} bananas
           </h1>
           <div className="fruits-container">
             <div className="mango-container">
@@ -29,17 +27,25 @@ class FruitsCounter extends Component {
                 alt="mango"
                 className="image"
               />
-              <button className="button" type="button" onClick={this.eatMango}>
+              <button
+                onClick={this.onIncreaseMangoCount}
+                className="button"
+                type="button"
+              >
                 Eat Mango
               </button>
             </div>
-            <div className="banana-container">
+            <div className="mango-container">
               <img
                 src="https://assets.ccbp.in/frontend/react-js/banana-img.png"
                 alt="banana"
                 className="image"
               />
-              <button className="button" type="button" onClick={this.eatBanana}>
+              <button
+                onClick={this.onIncreaseBananaCount}
+                className="button"
+                type="button"
+              >
                 Eat Banana
               </button>
             </div>
@@ -51,4 +57,3 @@ class FruitsCounter extends Component {
 }
 
 export default FruitsCounter
-
